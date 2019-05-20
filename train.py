@@ -52,6 +52,8 @@ x_test_b=np.concatenate((np.ones((x_test.shape[0],1)),x_test),axis=1)
 y_star=np.dot(x_test_b,w)
 y_pre=pd.read_csv('sampleSubmission.csv')
 y_pre.value=y_star
+y_pre.to_csv('sampleSubmission.csv',index = False)
+
 
 real=pd.read_csv('answer.csv')
 erro=abs(y_pre.value-real.value).sum()/len(real.value)
